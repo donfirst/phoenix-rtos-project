@@ -16,11 +16,12 @@ fi
 
 if [ "$#" -eq 1 ] && [ "$1" = "bash" ]; then
     # run interactive shell - using ROOT user
-    exec docker run -it --rm --platform=linux/arm64 -h "$(hostname)-docker" --env-file .docker_env -v "${PATH_TO_PROJECT}:/src" -w /src --entrypoint bash "$DOCKER_IMG_NAME"
+    exec docker run -it --rm -h "$(hostname)-docker" --env-file .docker_env -v "${PATH_TO_PROJECT}:/src" -w /src --entrypoint bash "$DOCKER_IMG_NAME"
 elif [ "$#" -eq 1 ] && [ "$1" = "pull" ]; then
     # explicitly pull (update local image)
-    exec docker pull --platform=linux/arm64 "$DOCKER_IMG_NAME"
+    exec docker pull "$DOCKER_IMG_NAME"
 else
     # run build - use our own UID/GID to create files with correct owner
-    exec docker run -it --rm --platform=linux/arm64 -h "$(hostname)-docker" --env-file .docker_env --user "$DOCKER_USER" -v "${PATH_TO_PROJECT}:/src:delegated" -w /src "${TMPFS_OVERLAY[@]}" "$DOCKER_IMG_NAME" "$@"
+    exec docker run -it --rm -h "$(hostname)-docker" --env-file .docker_env --user "$DOCKER_USER" -v "${PATH_TO_PROJECT}:/src:delegated" -w /src "${TMPFS_OVERLAY[@]}" "$DOCKER_IMG_NAME" "$@"
 fi
+
