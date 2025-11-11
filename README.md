@@ -1,4 +1,4 @@
-# phoenix-rtos-project
+4# phoenix-rtos-project
 
 [![ci](https://github.com/phoenix-rtos/phoenix-rtos-project/actions/workflows/ci.yml/badge.svg)](https://github.com/phoenix-rtos/phoenix-rtos-project/actions/workflows/ci.yml)
 [![nightly](https://github.com/phoenix-rtos/phoenix-rtos-project/actions/workflows/nightly.yml/badge.svg)](https://github.com/phoenix-rtos/phoenix-rtos-project/actions/workflows/nightly.yml)
@@ -26,3 +26,4 @@ Phoenix-RTOS philosophy, architecture and internals are described in [docs.phoen
 ## Product website
 
 Phoenix-RTOS website: [phoenix-rtos.com](https://phoenix-rtos.com).
+trigger
